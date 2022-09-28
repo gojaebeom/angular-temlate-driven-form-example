@@ -1,0 +1,16 @@
+<form (ngSubmit)="onSubmit()" #form="ngForm">
+  <div ngModelGroup="userData">
+    <div class="flex flex-col">
+      <label>username</label>
+      <input ngModel name="username" required #username="ngModel" />
+      <span *ngIf="!username.valid && username.touched">input your name.</span>
+    </div>
+    <div class="flex flex-col">
+      <label>email</label>
+      <input ngModel name="email" required email #email="ngModel" />
+      <span *ngIf="!email.valid && email.touched">input your email.</span>
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="!form.valid">create</button>
+</form>
